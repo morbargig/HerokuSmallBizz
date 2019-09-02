@@ -55,7 +55,7 @@ class Calendar extends Component {
         let thisSanday = moment().day(6)
         let todayy = new Date()
 
-        let newDayNumber = thisSanday.diff(todayy, 'days') - 1
+        let newDayNumber = thisSanday.diff(todayy, 'days') - 2
         let numberOfDaysHeWork = Object.keys(i.days).length
         console.log(numberOfDaysHeWork)
         // newDayNumber += 1
