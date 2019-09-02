@@ -1,7 +1,7 @@
 
 const path = require('path')
-const DBNAME = process.env.DBNAME
-const PORT = process.env.PORT
+// const DBNAME = process.env.DBNAME
+// const PORT = process.env.PORT
 // Server setup
 const express = require('express')
 const app = express()
@@ -32,11 +32,11 @@ app.get('*', function(req, res){
 
 
 
-port = PORT || 8000
-DBname = DBNAME || 'SmallBizDB'
+port =  8000
+DBname = 'SmallBizDB'
 
-mongoose.connect(`mongodb://localhost/${DBname}`, { useNewUrlParser: true }).then(() => {
-    app.listen(port, () => console.log(`Running server on port` + port))
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${DBname}`, { useNewUrlParser: true }).then(() => {
+    app.listen(process.env.PORT || port, () => console.log(`Running server on port` + port))
 })
 
 
