@@ -1,0 +1,48 @@
+{
+  "name": "smallbiz",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.3.3",
+    "alertify": "^0.3.0",
+    "alertify.js": "^1.0.12",
+    "alertifyjs": "^1.11.4",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "firebase": "^6.4.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.6.9",
+    "nodemailer": "^6.3.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-geolocation": "^1.0.4",
+    "react-google-maps": "^9.4.5",
+    "react-google-places-autocomplete": "^1.5.2",
+    "react-materialize": "^3.3.4",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
