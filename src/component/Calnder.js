@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import moment from 'moment'
-import { toUnicode } from 'punycode';
-import alertify from 'alertify.js'
+// import { toUnicode } from 'punycode';
+// import alertify from 'alertify.js'
 
 
 class Calendar extends Component {
@@ -34,6 +34,7 @@ class Calendar extends Component {
         let i = this.state.Besniss[0]
         let result = []
         let days = i.availableAppointments.map(a => Object.keys(a))
+        let days2 = days
 
 
 
@@ -55,7 +56,8 @@ class Calendar extends Component {
         let thisSanday = moment().day(6)
         let todayy = new Date()
 
-        let newDayNumber = thisSanday.diff(todayy, 'days') - 2
+        let newDayNumber = thisSanday.diff(todayy, 'days') - 1
+// days2 = days2.splice(newDayNumber , )
         let numberOfDaysHeWork = Object.keys(i.days).length
         console.log(numberOfDaysHeWork)
         // newDayNumber += 1

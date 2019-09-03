@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { googleMap, withScriptjs, withGoogleMap, GoogleMap } from 'react-google-maps'
 import moment from 'moment'
 import alertify from 'alertify.js'
-import Maps from './Maps';
 import Calendar from './Calnder';
 require('dotenv').config()
 
