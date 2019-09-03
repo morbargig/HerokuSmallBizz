@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import axios from 'axios'
 import firebase from '../config/firebase'
-import Maps from './Maps';
-import { async } from 'q';
-import Button from '@material-ui/core/Button'
+// import Maps from './Maps';
+// import { async } from 'q';
+// import Button from '@material-ui/core/Button'
 
 
 class Home extends Component {
