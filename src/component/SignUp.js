@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button'
 import indigo from '@material-ui/core/colors/indigo'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
+
+
 const primary = indigo[500]
 const secondary = indigo[50]
 class SignUp extends Component {

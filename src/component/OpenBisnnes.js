@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import firebase from '../config/firebase'
 import { async } from 'q';
 import axios from 'axios'
+require('dotenv').config()
+let request  = process.env.request
 
 // import Checkbox from 'react-materialize/lib/Checkbox';
 // import Select from 'react-materialize/lib/Checkbox';
@@ -32,7 +34,7 @@ class OpenBisnnes extends Component {
 
 
     async componentDidMount() {
-        const res = await axios.get('/Catgories')
+        const res = await axios.get(`${request}Catgories`)
         let Catgories = res.data[0].Catgories
         // Catgories = Object.keys(Catgories)
         console.log(Catgories)

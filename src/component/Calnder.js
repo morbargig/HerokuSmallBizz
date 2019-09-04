@@ -3,6 +3,8 @@ import axios from 'axios'
 import moment from 'moment'
 // import { toUnicode } from 'punycode';
 // import alertify from 'alertify.js'
+require('dotenv').config()
+let request  = process.env.request
 
 
 class Calendar extends Component {
@@ -22,7 +24,7 @@ class Calendar extends Component {
     }
 
     returnCatgories = async () => {
-        const res = await axios.get('/Besniss')
+        const res = await axios.get(`${request}Besniss`)
         this.setState({ Besniss: res.data }, function () { console.log(this.state.Besniss) })
     }
 
@@ -34,7 +36,7 @@ class Calendar extends Component {
         let i = this.state.Besniss[0]
         let result = []
         let days = i.availableAppointments.map(a => Object.keys(a))
-        let days2 = days
+        // let days2 = days
 
 
 
@@ -53,11 +55,11 @@ class Calendar extends Component {
 
 
         console.log(moment().day(6))
-        let thisSanday = moment().day(6)
+        let thisSunday = moment().day(6)
         let todayy = new Date()
 
-        let newDayNumber = thisSanday.diff(todayy, 'days') - 1
-// days2 = days2.splice(newDayNumber , )
+        let newDayNumber = thisSunday.diff(todayy, 'days') - 1
+// days2 = days2.splice(newDayNumber , 7 )
         let numberOfDaysHeWork = Object.keys(i.days).length
         console.log(numberOfDaysHeWork)
         // newDayNumber += 1

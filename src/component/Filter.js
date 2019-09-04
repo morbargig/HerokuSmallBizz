@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import axios from 'axios'
 import '../CSS/Filter.css'
 import Button from '@material-ui/core/Button'
-
+require('dotenv').config()
+let request  = process.env.request
 
 class Filter extends Component {
   constructor() {
@@ -19,7 +20,7 @@ class Filter extends Component {
 
   getBusinesses = async () => {
     console.log(this.props.name)
-    let businessess = await axios.get(`/getbyfield/${this.props.name}`)
+    let businessess = await axios.get(`${request}getbyfield/${this.props.name}`)
     console.log(businessess.data)
     this.setState({ businessess: businessess.data }, function () {
       console.log(this.state)

@@ -5,6 +5,8 @@ import firebase from '../config/firebase'
 // import Maps from './Maps';
 // import { async } from 'q';
 // import Button from '@material-ui/core/Button'
+require('dotenv').config()
+let request  = process.env.request
 
 
 class Home extends Component {
@@ -33,7 +35,7 @@ class Home extends Component {
     getName = async () => {
         if (this.state.loggedInUserName === undefined) {
             console.log(this.props.state.user.email)
-            let response = await axios.get(`/getuser/${this.props.state.user.email}`)
+            let response = await axios.get(`${request}getuser/${this.props.state.user.email}`)
             console.log(response)
             this.setState({ loggedInUserName: response.data.name }, function () { console.log(this.state.loggedInUserName) })
 
@@ -43,7 +45,7 @@ class Home extends Component {
     getImg = async () => {
         if (this.state.loggedInUserImg === undefined) {
             console.log(this.props.state.img)
-            let response = await axios.get(`/getuser/${this.props.state.user.email}`)
+            let response = await axios.get(`${request}getuser/${this.props.state.user.email}`)
             this.setState({ loggedInUserImg: response.data.img }, function () { console.log(this.state.loggedInUserImg) })
         }
     }
@@ -93,7 +95,7 @@ class Home extends Component {
         //     this.componentDidMount()
         // } else {
         console.log(catagorySearch, text, typeof text)
-        let res = await axios.get(`/searchByCatagory/${catagorySearch}/${text}`)
+        let res = await axios.get(`${request}searchByCatagory/${catagorySearch}/${text}`)
         console.log(res.data)
         this.setState({
             resultByCatgory: res.data,

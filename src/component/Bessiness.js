@@ -4,10 +4,12 @@ import moment from 'moment'
 import alertify from 'alertify.js'
 import Calendar from './Calnder';
 require('dotenv').config()
+let request  = process.env.request
 
-const API_KEY = process.env.API_KEY
 
-require('dotenv').config()
+// const API_KEY = process.env.API_KEY
+
+// require('dotenv').config()
 
 
 class Bessiness extends Component {
@@ -25,7 +27,7 @@ class Bessiness extends Component {
   }
 
   getBusinesses = async () => {
-    let business = await axios.get(`/getbyname/${this.props.name}`)
+    let business = await axios.get(`${request}getbyname/${this.props.name}`)
     this.setState({ business: business.data }, function () {
     })
   }
@@ -40,7 +42,7 @@ class Bessiness extends Component {
     let date = x
     let appointmentComfirm = this.state.business[0].appointmentComfirm
     let object = { date: date, time: time, appointmentComfirm: appointmentComfirm }
-    await axios.put(`/makeapp/${this.state.business[0]._id}/${this.props.state.user.uid}`, object)
+    await axios.put(`${request}makeapp/${this.state.business[0]._id}/${this.props.state.user.uid}`, object)
     await this.makeRequestToMail(this.props.state.userEmail, time, date, this.state.business[0].name)
     await alertify
       .alert("Congratulations!! the appointment is set, count to 3 and check your email :)")
@@ -55,7 +57,7 @@ class Bessiness extends Component {
       subject: `You made it! you have an appointment`,
       text: `we've created for you an appointment at ${date} in ${time} for ${business}`
     }
-    await axios.post('/sendEmail', mail)
+    await axios.post(`${request}sendEmail`, mail)
   }
 
   func = () => {
